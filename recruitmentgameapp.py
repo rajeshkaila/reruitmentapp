@@ -113,15 +113,15 @@ else:
 
     st.write("Thank you for playing!")
 
-    # Save the responses to an Excel file
+    # Save the responses to a CSV file
     if not response_data.empty:
-        file_name = "candidate_responses.xlsx"
-        response_data.to_excel(file_name, index=False)
+        file_name = "candidate_responses.csv"
+        response_data.to_csv(file_name, index=False)  # Save as CSV file
         
         # Provide the download link
         st.download_button(
-            label="Download Response Data (Excel)",
+            label="Download Response Data (CSV)",
             data=open(file_name, "rb").read(),
             file_name=file_name,
-            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            mime="text/csv"
         )
